@@ -1,0 +1,170 @@
+
+
+
+
+
+
+
+
+colors:
+
+blaUS
+background-image: linear-gradient(to top, #4250dc, #4663e1, #5074e5, #5d84e7, #6d94e8, #629eea, #5ba7ea, #5bb0e8, #34b5e2, #00bad7, #00bcc7, #20beb4);
+background-image: linear-gradient(to bottom, #3951eb, #0077fd, #0095ff, #00affa, #00c5f0, #4bccee, #6cd3ed, #86d9ed, #8ad4f0, #92cef1, #9bc7f0, #a5c1ec);
+
+
+
+
+
+
+
+
+
+
+        <div id="sidebar2" class="card shadow">
+            <div class="card-body">
+                <h3 class="card-title">Noticias</h3>
+                <ul class="list-unstyled">
+                    <li class="my-3">
+                        <a>Prueba de noticia</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+ELIMINAT    Route::get('/dashboard', 'Admin\FrontendController@index');
+
+
+
+
+
+
+IMAGEN:
+
+<div class="col-md-4 border-right">
+    <img src="{{ asset('assets/uploads/section/' . $section->cate_id . '/' . $section->position . '.jpg') }}"
+        alt="{{ $section->name }}" class="img-fluid">
+</div>
+
+
+
+    ----- navabar ------
+
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="assets/logo/blanc-transformed.png" alt="" width="250" height="50"
+                    class="d-inline-block align-text-top">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="title-page" href="#">Billboard</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('category') }}">categorías</a>
+                </li>
+
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @endguest
+                @auth
+                    <li class="nav-item">
+                        @if (Auth::user()->role_as == '1')
+                            <a class="nav-link" href="{{ route('admin.dashboard') }}">Administrador</a>
+                        @endif
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ asset('assets/uploads/user/' . Auth::user()->image) }}"
+                                    alt="{{ Auth::user()->name }}" width="32" height="32" class="rounded-circle">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ route('user', $user->username) }}">Perfil</a></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form-2" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+
+                    </form>
+                @endauth
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+rset id:
+
+SET @id := 0;
+UPDATE forum SET id = @id:=@id+1;
+ALTER TABLE forum AUTO_INCREMENT = 1;
+
+
+INSERT INTO forum_comments (id, user_id, forum_id, comment, likes_count, dislikes_count) VALUES 
+(1, 1, 'Me encanta este tema', 10, 2),
+(1, 2, 'No estoy de acuerdo con algunos puntos', 5, 8),
+(1, 3, 'Interesante, pero me gustaría saber más sobre...', 2, 1);
+
+
+
+
+
+votos:
+
+INSERT INTO forum_votes (user_id, forum_id, type) VALUES (1, 1, 'like');
+INSERT INTO forum_comments_votes (user_id, forum_id, type) VALUES (1, 1, 'like');
+
+
+
+<form id="like-form-{{ $post->id }}"
+    action="{{ url('forum/' . $post->id . '/like') }}" method="POST"
+    style="display: none;">
+    @csrf
+</form>
+
+<a href="#" class="dislike"
+    onclick="event.preventDefault(); document.getElementById('dislike-form-{{ $post->id }}').submit();">
+    <i class="ms-1 fa fa-thumbs-down thumbs-down-red"></i>{{ $post->dislikes }}
+</a>
+<form id="dislike-form-{{ $post->id }}"
+    action="{{ url('forum/' . $post->id . '/dislike') }}" method="POST"
+    style="display: none;">
+    @csrf
+</form>
