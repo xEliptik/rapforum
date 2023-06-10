@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://rapforum-production.up.railway.app/'),
+    'url' => env('APP_URL', 'https://rapforum-production.up.railway.app'),
 
     'secure' => env('APP_SECURE', false),
 
