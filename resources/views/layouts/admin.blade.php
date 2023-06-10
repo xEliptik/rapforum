@@ -36,7 +36,7 @@
 
     <script src="{{ asset_path('admin/js/jquery.min.js') }}"></script>
     <script src="{{ asset_path('admin/js/popper.min.js') }}"></script>
-    <script src="{{ aasset_path('admin/js/bootstrap-material-design.min.js') }}"></script>
+    <script src="{{ asset_path('admin/js/bootstrap-material-design.min.js') }}"></script>
     <script src="{{ asset_path('admin/js/perfect-scrollbar.jquery.min.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (session('status'))
