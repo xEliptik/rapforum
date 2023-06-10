@@ -12,8 +12,8 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="{{ secure_asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('frontend/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset_path('frontend/css/bootstrap5.css') }}" rel="stylesheet">
+    <link href="{{ asset_path('frontend/css/custom.css') }}" rel="stylesheet">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
 
@@ -95,7 +95,7 @@
     <!--  <script>
         src = "{{ asset('frontend/js/bootstrap.bundle.min.js') }}" >
     </script>-->
-    <script src="{{ secure_asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset_path('frontend/js/bootstrap.bundle.min.js') }}"></script>
 
 </body>
 

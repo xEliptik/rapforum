@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <link href="{{ secure_asset('admin/css/material-dashboard.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('admin/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset_path('admin/css/material-dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset_path('admin/css/custom.css') }}" rel="stylesheet">
 
 
 
@@ -34,10 +34,10 @@
     </div>
     </div>
 
-    <script src="{{ secure_asset('admin/js/jquery.min.js') }}"></script>
-    <script src="{{ secure_asset('admin/js/popper.min.js') }}"></script>
-    <script src="{{ asecure_asset('admin/js/bootstrap-material-design.min.js') }}"></script>
-    <script src="{{ secure_asset('admin/js/perfect-scrollbar.jquery.min.js') }}"></script>
+    <script src="{{ asset_path('admin/js/jquery.min.js') }}"></script>
+    <script src="{{ asset_path('admin/js/popper.min.js') }}"></script>
+    <script src="{{ aasset_path('admin/js/bootstrap-material-design.min.js') }}"></script>
+    <script src="{{ asset_path('admin/js/perfect-scrollbar.jquery.min.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (session('status'))
         <script>
