@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link href="{{ secure_asset('frontend/css/custom.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet">
     <link rel="icon" href="../assets/logo/image.png">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
@@ -34,9 +34,9 @@
         @yield('content')
     </div>
 
-    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/jquery-3.6.4.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ secure_asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ secure_asset('frontend/js/jquery-3.6.4.min.js') }}"></script>
+    <script src="{{ secure_asset('frontend/js/owl.carousel.min.js') }}"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
         var availableTags = [];
